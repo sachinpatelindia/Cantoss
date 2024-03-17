@@ -30,6 +30,8 @@ namespace Cantoss.Web.Framework.MVC.Routing
                     values[RoutePathDefaults.LearnFieldKey] = urlRecord.Id;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
+                default:
+                    break;
             }
 
             return new ValueTask<RouteValueDictionary>(values);
