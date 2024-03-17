@@ -1,3 +1,5 @@
+using Cantoss.Web.Framework.MVC.Routing;
+
 namespace Cantoss.Web
 {
     public class Program
@@ -6,6 +8,9 @@ namespace Cantoss.Web
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddScoped(typeof(SlugRouteTransformer));
+
+            builder.Services.AddSingleton<IRoutePublisher, RoutePublisher>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -26,9 +31,18 @@ namespace Cantoss.Web
 
             app.UseAuthorization();
 
-            app.MapControllerRoute(
+            app.UseEndpoints(endpoints =>
+            {
+               
+                app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+                
+                var result = app.Services.GetService<IRoutePublisher>();
+                result.RegisterRoutes(endpoints);
+            });
+
+
 
             app.Run();
         }

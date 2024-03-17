@@ -8,5 +8,6 @@
         public static string TopicIdFieldKey => "topicid";
         public static string CategoryIdFieldKey => "categoryid";
         public static string UrlFieldKey => "url";
+        public static string LearnFieldKey => "learnid";
     }
 }
