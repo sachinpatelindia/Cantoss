@@ -9,5 +9,6 @@
         public static string CategoryIdFieldKey => "categoryid";
         public static string UrlFieldKey => "url";
         public static string LearnFieldKey => "learnid";
+        public static string ResumeFieldKey => "resumeid";
     }
 }

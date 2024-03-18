@@ -15,19 +15,26 @@ namespace Cantoss.Web.Framework.MVC.Routing
             var slug = slugValues as string;
             if (slug == null)
                 return new ValueTask<RouteValueDictionary>(values);
-            var urlRecord = GetUrlRecords().FirstOrDefault(v=>v.Slug.Contains(slug));
+            var urlRecord = GetUrlRecords().FirstOrDefault(v => v.Slug.Contains(slug));
 
             if (urlRecord == null)
                 return new ValueTask<RouteValueDictionary>(values);
             if (!urlRecord.IsActive)
                 return new ValueTask<RouteValueDictionary>(values);
 
-            switch(urlRecord.EntityName.ToLowerInvariant())
+            switch (urlRecord.EntityName.ToLowerInvariant())
             {
                 case "learn":
                     values[RoutePathDefaults.ControllerFieldKey] = "learn";
                     values[RoutePathDefaults.ActionFieldKey] = "details";
                     values[RoutePathDefaults.LearnFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
+                    break;
+
+                case "resume":
+                    values[RoutePathDefaults.ControllerFieldKey] = "resume";
+                    values[RoutePathDefaults.ActionFieldKey] = "loader";
+                    values[RoutePathDefaults.ResumeFieldKey] = urlRecord.Id;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
                 default:
@@ -60,6 +67,13 @@ namespace Cantoss.Web.Framework.MVC.Routing
                     Id=3,
                     EntityName="Learn",
                     Slug="learn-cs",
+                    IsActive=true,
+                },
+                 new UrlRecord
+                {
+                    Id=4,
+                    EntityName="Resume",
+                    Slug="resume-builder",
                     IsActive=true,
                 }
             };
