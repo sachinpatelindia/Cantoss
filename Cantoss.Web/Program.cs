@@ -33,7 +33,8 @@ namespace Cantoss.Web
 
             app.UseEndpoints(endpoints =>
             {
-               
+                endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=Learn}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=values}/{action=Index}/{id?}");
                 app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
