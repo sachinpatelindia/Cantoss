@@ -1,3 +1,4 @@
+using Cantoss.Service.SEO;
 using Cantoss.Web.Framework.MVC.Routing;
 
 namespace Cantoss.Web
@@ -9,7 +10,7 @@ namespace Cantoss.Web
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddScoped(typeof(SlugRouteTransformer));
-
+            builder.Services.AddScoped<IUrlRecordService, UrlRecordService>();
             builder.Services.AddSingleton<IRoutePublisher, RoutePublisher>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -33,7 +34,7 @@ namespace Cantoss.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=Learn}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=Course}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=values}/{action=Index}/{id?}");
                 app.MapControllerRoute(
                 name: "default",

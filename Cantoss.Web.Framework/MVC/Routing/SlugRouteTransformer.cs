@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Cantoss.Domain.SEO;
+using Cantoss.Service.SEO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Routing;
 
@@ -6,6 +8,11 @@ namespace Cantoss.Web.Framework.MVC.Routing
 {
     public class SlugRouteTransformer : DynamicRouteValueTransformer
     {
+        private readonly IUrlRecordService _urlRecordService;
+        public SlugRouteTransformer(IUrlRecordService urlRecordService)
+        {
+            _urlRecordService = urlRecordService;
+        }
         public override ValueTask<RouteValueDictionary> TransformAsync(HttpContext httpContext, RouteValueDictionary values)
         {
             if (values == null)
@@ -15,7 +22,7 @@ namespace Cantoss.Web.Framework.MVC.Routing
             var slug = slugValues as string;
             if (slug == null)
                 return new ValueTask<RouteValueDictionary>(values);
-            var urlRecord = GetUrlRecords().FirstOrDefault(v => v.Slug.Contains(slug));
+            var urlRecord = _urlRecordService.GetUrlRecordBySlug(slug);
 
             if (urlRecord == null)
                 return new ValueTask<RouteValueDictionary>(values);
@@ -51,50 +58,5 @@ namespace Cantoss.Web.Framework.MVC.Routing
 
             return new ValueTask<RouteValueDictionary>(values);
         }
-
-        private List<UrlRecord> GetUrlRecords()
-        {
-            return new List<UrlRecord>
-            {
-                new UrlRecord
-                {
-                    Id=1,
-                    EntityName="course",
-                    Slug="course-abc",
-                    IsActive=true,
-                },
-                 new UrlRecord
-                {
-                    Id=2,
-                    EntityName="course",
-                    Slug="course-asp",
-                    IsActive=true,
-                },
-                 new UrlRecord
-                {
-                    Id=3,
-                    EntityName="course",
-                    Slug="course-cs",
-                    IsActive=true,
-                },
-                 new UrlRecord
-                {
-                    Id=4,
-                    EntityName="Resume",
-                    Slug="resume-builder",
-                    IsActive=true,
-                }
-            };
-
-        }
     }
-}
-
-
-public class UrlRecord
-{
-    public int Id { get; set; }
-    public string EntityName { get; set; }
-    public string Slug { get; set; }
-    public bool IsActive { get; set; }
 }
