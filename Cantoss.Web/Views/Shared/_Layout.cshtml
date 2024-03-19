@@ -35,6 +35,15 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <a href="@Url.RouteUrl("course",new {SeName="course-cs"})"><span class="fa fa-chevron-right mr-2"></span> Course CS </a>
+            <br />
+            <a href="@Url.RouteUrl("course",new {SeName="course-abc"})"><span class="fa fa-chevron-right mr-2"></span> Course Abc </a>
+            <br />
+            <a href="@Url.RouteUrl("course",new {SeName="course-asp"})"><span class="fa fa-chevron-right mr-2"></span> Course Asp </a>
+            <br />
+            <a href="@Url.RouteUrl("resume",new {SeName="resume-builder"})"><span class="fa fa-chevron-right mr-2"></span> Resume builder </a>
+            <br />
+
             @RenderBody()
         </main>
     </div>

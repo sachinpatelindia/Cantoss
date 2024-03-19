@@ -10,8 +10,8 @@ namespace Cantoss.Web.Infrastructre
         {
             string pattern = "{SeName}";
             endpointRouteBuilder.MapDynamicControllerRoute<SlugRouteTransformer>(pattern);
-            endpointRouteBuilder.MapControllerRoute("Article",pattern,new {controller ="Articles",action = "Details" });
-            endpointRouteBuilder.MapControllerRoute("Learn", pattern, new { controller = "Learn", action = "Details" });
+            endpointRouteBuilder.MapControllerRoute("CMS", pattern, new { controller = "CMS", action = "Details" });
+            endpointRouteBuilder.MapControllerRoute("Course", pattern, new { controller = "Course", action = "Details" });
             endpointRouteBuilder.MapControllerRoute("Resume", pattern, new { controller = "Resume", action = "Loader" });
         }
     }

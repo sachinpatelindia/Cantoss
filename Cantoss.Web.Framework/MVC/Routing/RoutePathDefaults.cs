@@ -4,11 +4,11 @@
     {
         public static string ActionFieldKey => "action";
         public static string ControllerFieldKey => "controller";
-        public static string SeNameFieldKey => "topicid";
-        public static string TopicIdFieldKey => "topicid";
+        public static string SeNameFieldKey => "sename";
+        public static string CmsIdFieldKey => "cmsId";
         public static string CategoryIdFieldKey => "categoryid";
         public static string UrlFieldKey => "url";
-        public static string LearnFieldKey => "learnid";
+        public static string CourseFieldKey => "courseId";
         public static string ResumeFieldKey => "resumeid";
     }
 }

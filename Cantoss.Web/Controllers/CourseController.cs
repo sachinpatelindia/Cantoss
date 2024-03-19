@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cantoss.Web.Controllers
 {
-    public class LearnController : Controller
+    public class CourseController : Controller
     {
         // GET: LearnController
         public ActionResult Index()
@@ -12,9 +12,9 @@ namespace Cantoss.Web.Controllers
         }
 
         // GET: LearnController/Details/5
-        public ActionResult Details(int learnid)
+        public ActionResult Details(int courseId)
         {
-            return View(learnid);
+            return View(courseId);
         }
 
         // GET: LearnController/Create

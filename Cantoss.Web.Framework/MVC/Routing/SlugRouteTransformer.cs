@@ -24,10 +24,10 @@ namespace Cantoss.Web.Framework.MVC.Routing
 
             switch (urlRecord.EntityName.ToLowerInvariant())
             {
-                case "learn":
-                    values[RoutePathDefaults.ControllerFieldKey] = "learn";
+                case "course":
+                    values[RoutePathDefaults.ControllerFieldKey] = "course";
                     values[RoutePathDefaults.ActionFieldKey] = "details";
-                    values[RoutePathDefaults.LearnFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.CourseFieldKey] = urlRecord.Id;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
 
@@ -37,6 +37,14 @@ namespace Cantoss.Web.Framework.MVC.Routing
                     values[RoutePathDefaults.ResumeFieldKey] = urlRecord.Id;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
+
+                case "cms":
+                    values[RoutePathDefaults.ControllerFieldKey] = "cms";
+                    values[RoutePathDefaults.ActionFieldKey] = "details";
+                    values[RoutePathDefaults.CmsIdFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
+                    break;
+
                 default:
                     break;
             }
@@ -51,22 +59,22 @@ namespace Cantoss.Web.Framework.MVC.Routing
                 new UrlRecord
                 {
                     Id=1,
-                    EntityName="Learn",
-                    Slug="learn-abc",
+                    EntityName="course",
+                    Slug="course-abc",
                     IsActive=true,
                 },
                  new UrlRecord
                 {
                     Id=2,
-                    EntityName="Learn",
-                    Slug="learn-asp",
+                    EntityName="course",
+                    Slug="course-asp",
                     IsActive=true,
                 },
                  new UrlRecord
                 {
                     Id=3,
-                    EntityName="Learn",
-                    Slug="learn-cs",
+                    EntityName="course",
+                    Slug="course-cs",
                     IsActive=true,
                 },
                  new UrlRecord

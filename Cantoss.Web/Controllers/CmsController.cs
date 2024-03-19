@@ -1,30 +1,29 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cantoss.Web.Areas.Admin.Controllers
+namespace Cantoss.Web.Controllers
 {
-    [Area("Admin")]
-    public class LearnController : Controller
+    public class CmsController : Controller
     {
-        // GET: LearnController
+        // GET: CmsController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: LearnController/Details/5
-        public ActionResult Details(int id)
+        // GET: CmsController/Details/5
+        public ActionResult Details(int cmsId)
         {
-            return View();
+            return View(cmsId);
         }
 
-        // GET: LearnController/Create
+        // GET: CmsController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: LearnController/Create
+        // POST: CmsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -39,13 +38,13 @@ namespace Cantoss.Web.Areas.Admin.Controllers
             }
         }
 
-        // GET: LearnController/Edit/5
+        // GET: CmsController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: LearnController/Edit/5
+        // POST: CmsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -60,13 +59,13 @@ namespace Cantoss.Web.Areas.Admin.Controllers
             }
         }
 
-        // GET: LearnController/Delete/5
+        // GET: CmsController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: LearnController/Delete/5
+        // POST: CmsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
