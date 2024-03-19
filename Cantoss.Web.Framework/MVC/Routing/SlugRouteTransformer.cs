@@ -1,5 +1,4 @@
-﻿using Cantoss.Domain.SEO;
-using Cantoss.Service.SEO;
+﻿using Cantoss.Service.SEO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Routing;
