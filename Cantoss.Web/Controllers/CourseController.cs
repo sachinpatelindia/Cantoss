@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Cantoss.Service.Courses;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cantoss.Web.Controllers
 {
     public class CourseController : Controller
     {
+        private readonly ICourseService _courseService;
+        public CourseController(ICourseService courseService)
+        {
+            _courseService = courseService;
+        }
         // GET: LearnController
         public ActionResult Index()
         {
@@ -14,7 +20,8 @@ namespace Cantoss.Web.Controllers
         // GET: LearnController/Details/5
         public ActionResult Details(int courseId)
         {
-            return View(courseId);
+            var course = _courseService.GetCourseById(courseId);
+            return View(course);
         }
 
         // GET: LearnController/Create
