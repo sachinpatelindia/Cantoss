@@ -1,3 +1,4 @@
+using Cantoss.Service.Portals;
 using Cantoss.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -7,10 +8,12 @@ namespace Cantoss.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IPortalService _portalService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IPortalService portalService)
         {
-            _logger = logger;
+            _portalService = portalService;
+             _logger = logger;
         }
 
         public IActionResult Index()
@@ -21,6 +24,12 @@ namespace Cantoss.Web.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Contact()
+        {
+            var contact = _portalService.GetPortalById();
+            return View(contact);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

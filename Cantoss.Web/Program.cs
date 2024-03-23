@@ -1,4 +1,5 @@
 using Cantoss.Service.Courses;
+using Cantoss.Service.Portals;
 using Cantoss.Service.SEO;
 using Cantoss.Web.Framework.MVC.Routing;
 
@@ -11,6 +12,7 @@ namespace Cantoss.Web
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddScoped(typeof(SlugRouteTransformer));
+            builder.Services.AddScoped<IPortalService, PortalService>();
             builder.Services.AddScoped<ICourseService, CourseService>();
             builder.Services.AddScoped<IUrlRecordService, UrlRecordService>();
             builder.Services.AddSingleton<IRoutePublisher, RoutePublisher>();
