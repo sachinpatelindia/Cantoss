@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Cantoss.Web.Controllers
 {
-    public class ResumeController : Controller
+    public class HiresController : Controller
     {
         // GET: ResumeController
         public ActionResult Index()
@@ -12,13 +11,18 @@ namespace Cantoss.Web.Controllers
         }
 
         // GET: ResumeController/Details/5
-        public ActionResult Loader(int resumeid)
+        public ActionResult Loader(int hireid)
         {
-            return View(resumeid);
+            return View(hireid);
         }
 
         // GET: ResumeController/Create
         public ActionResult Create()
+        {
+            return View();
+        }
+
+        public ActionResult Hiring()
         {
             return View();
         }

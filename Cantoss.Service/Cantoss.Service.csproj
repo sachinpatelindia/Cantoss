@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Cantoss.Library\Cantoss.Library.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Hires\" />
+  </ItemGroup>
+
 </Project>

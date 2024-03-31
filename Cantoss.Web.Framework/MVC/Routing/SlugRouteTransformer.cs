@@ -37,10 +37,10 @@ namespace Cantoss.Web.Framework.MVC.Routing
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
 
-                case "resume":
-                    values[RoutePathDefaults.ControllerFieldKey] = "resume";
+                case "hires":
+                    values[RoutePathDefaults.ControllerFieldKey] = "hires";
                     values[RoutePathDefaults.ActionFieldKey] = "loader";
-                    values[RoutePathDefaults.ResumeFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.HireFieldKey] = urlRecord.Id;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
 

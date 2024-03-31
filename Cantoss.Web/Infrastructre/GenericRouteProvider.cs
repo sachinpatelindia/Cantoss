@@ -12,7 +12,7 @@ namespace Cantoss.Web.Infrastructre
             endpointRouteBuilder.MapDynamicControllerRoute<SlugRouteTransformer>(pattern);
             endpointRouteBuilder.MapControllerRoute("CMS", pattern, new { controller = "CMS", action = "Details" });
             endpointRouteBuilder.MapControllerRoute("Course", pattern, new { controller = "Course", action = "Details" });
-            endpointRouteBuilder.MapControllerRoute("Resume", pattern, new { controller = "Resume", action = "Loader" });
+            endpointRouteBuilder.MapControllerRoute("Hires", pattern, new { controller = "Hires", action = "Loader" });
         }
     }
 }

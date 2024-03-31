@@ -32,8 +32,8 @@ namespace Cantoss.Service.SEO
                  new UrlRecord
                 {
                     Id=4,
-                    EntityName="Resume",
-                    Slug="resume-builder",
+                    EntityName="hires",
+                    Slug="hire-me",
                     IsActive=true,
                 }
             };
