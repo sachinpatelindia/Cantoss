@@ -4,7 +4,7 @@ namespace Cantoss.Service.Courses
 {
     public interface ICourseService
     {
-        Course GetCourseById(int id);
+        Course GetCourseById(string id);
         IList<Course> GetAll();
 
     }

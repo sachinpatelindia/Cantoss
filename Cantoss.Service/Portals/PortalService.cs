@@ -11,7 +11,6 @@ namespace Cantoss.Service.Portals
                 Description = "This is portal info page, it contains information about portal contact details.",
                 Domain = "www.cantoss.com",
                 Email = "contact@example.com",
-                Id = 1,
                 IsActive = true,
                 Name = "Cantoss web",
                 Phone = "1234567890"

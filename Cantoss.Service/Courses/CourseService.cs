@@ -9,7 +9,7 @@ namespace Cantoss.Service.Courses
             return GetCourses();
         }
 
-        public Course GetCourseById(int id)
+        public Course GetCourseById(string id)
         {
             return GetAll().FirstOrDefault(c=>c.Id==id);
         }
@@ -19,8 +19,7 @@ namespace Cantoss.Service.Courses
             return new List<Course>
             {
                 new Course
-                {
-                    Id = 1,
+                {   Id = "a1888f63-9e97-4a6c-aa8d-920a19fc34a3",
                     AuthorId = 1,
                     Author = "SKP",
                     CourseCopmletionPercent = 1,
@@ -33,7 +32,7 @@ namespace Cantoss.Service.Courses
                 },
                  new Course
                 {
-                    Id = 2,
+                    Id="a1888f63-9e97-4a6c-aa8d-920a19fc34a2",
                     AuthorId = 2,
                     Author = "SKP",
                     CourseCopmletionPercent = 2,
@@ -46,7 +45,7 @@ namespace Cantoss.Service.Courses
                 },
                    new Course
                 {
-                    Id = 3,
+                    Id="a1888f63-9e97-4a6c-aa8d-920a19fc34a1",
                     AuthorId = 3,
                     Author = "SKP",
                     CourseCopmletionPercent = 3,

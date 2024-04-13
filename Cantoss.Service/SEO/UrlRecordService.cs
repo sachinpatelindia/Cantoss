@@ -10,29 +10,29 @@ namespace Cantoss.Service.SEO
             {
                 new UrlRecord
                 {
-                    Id=1,
                     EntityName="course",
+                    EntityId = "a1888f63-9e97-4a6c-aa8d-920a19fc34a3",
                     Slug="course-abc",
                     IsActive=true,
                 },
                  new UrlRecord
                 {
-                    Id=2,
                     EntityName="course",
                     Slug="course-asp",
+                    EntityId = "a1888f63-9e97-4a6c-aa8d-920a19fc34a2",
                     IsActive=true,
                 },
                  new UrlRecord
                 {
-                    Id=3,
                     EntityName="course",
+                     EntityId = "a1888f63-9e97-4a6c-aa8d-920a19fc34a1",
                     Slug="course-cs",
                     IsActive=true,
                 },
                  new UrlRecord
                 {
-                    Id=4,
                     EntityName="hires",
+                     EntityId = "a1888f63-9e97-4a6c-aa8d-920a19fc34a0",
                     Slug="hire-me",
                     IsActive=true,
                 }

@@ -1,8 +1,14 @@
-﻿namespace Cantoss.Library.Domain.Hires
+﻿using Cantoss.Library.Domain.Portals;
+
+namespace Cantoss.Library.Domain.Hires
 {
-    public class Hire
+    public class Hire:CommonEntity
     {
-        public int Id { get; set; }
+        public Hire()
+        {
+            Id = Guid.NewGuid().ToString();
+            PartitionKey = nameof(Portal);
+        }
         public bool IsAlive { get; set; }
 
     }

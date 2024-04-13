@@ -11,9 +11,9 @@ namespace Cantoss.Web.Controllers
         }
 
         // GET: ResumeController/Details/5
-        public ActionResult Loader(int hireid)
+        public ActionResult Loader(string hireid)
         {
-            return View(hireid);
+            return View("loader",hireid);
         }
 
         // GET: ResumeController/Create

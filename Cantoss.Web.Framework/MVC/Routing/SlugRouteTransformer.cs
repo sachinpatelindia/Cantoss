@@ -33,21 +33,21 @@ namespace Cantoss.Web.Framework.MVC.Routing
                 case "course":
                     values[RoutePathDefaults.ControllerFieldKey] = "course";
                     values[RoutePathDefaults.ActionFieldKey] = "details";
-                    values[RoutePathDefaults.CourseFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.CourseFieldKey] = urlRecord.EntityId;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
 
                 case "hires":
                     values[RoutePathDefaults.ControllerFieldKey] = "hires";
                     values[RoutePathDefaults.ActionFieldKey] = "loader";
-                    values[RoutePathDefaults.HireFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.HireFieldKey] = urlRecord.EntityId;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
 
                 case "cms":
                     values[RoutePathDefaults.ControllerFieldKey] = "cms";
                     values[RoutePathDefaults.ActionFieldKey] = "details";
-                    values[RoutePathDefaults.CmsIdFieldKey] = urlRecord.Id;
+                    values[RoutePathDefaults.CmsIdFieldKey] = urlRecord.EntityId;
                     values[RoutePathDefaults.SeNameFieldKey] = urlRecord.Slug;
                     break;
 

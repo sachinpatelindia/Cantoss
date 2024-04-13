@@ -18,7 +18,7 @@ namespace Cantoss.Web.Controllers
         }
 
         // GET: LearnController/Details/5
-        public ActionResult Details(int courseId)
+        public ActionResult Details(string courseId)
         {
             var course = _courseService.GetCourseById(courseId);
             return View(course);

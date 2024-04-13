@@ -1,8 +1,12 @@
 ﻿namespace Cantoss.Library.Domain.Courses
 {
-    public class Course
+    public class Course:CommonEntity
     {
-        public int Id { get; set; }
+        public Course()
+        {
+            Id = Guid.NewGuid().ToString();
+            PartitionKey = nameof(Course);
+        }
         public int CourseFormatId { get; set; }
         public string Title { get; set; }
         public string Name { get; set; }
