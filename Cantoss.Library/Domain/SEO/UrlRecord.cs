@@ -2,7 +2,7 @@
 
 namespace Cantoss.Domain.SEO
 {
-    public class UrlRecord:CommonEntity
+    public class UrlRecord : CommonEntity
     {
         public UrlRecord()
         {

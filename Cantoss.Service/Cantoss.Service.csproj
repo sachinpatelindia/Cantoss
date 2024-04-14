@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cantoss.Azure.Library\Cantoss.Azure.Library.csproj" />
     <ProjectReference Include="..\Cantoss.Library\Cantoss.Library.csproj" />
   </ItemGroup>
 
