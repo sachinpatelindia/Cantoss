@@ -13,7 +13,7 @@ namespace Cantoss.Web
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddScoped(typeof(SlugRouteTransformer));
-            CosmosDbDependencyRegistrar registrar = new CosmosDbDependencyRegistrar(builder.Services, builder.Configuration);
+            builder.Services.AddCosmosDbDependencyRegistrar(builder.Configuration);
             builder.Services.AddScoped<IPortalService, PortalService>();
             builder.Services.AddScoped<ICourseService, CourseService>();
             builder.Services.AddScoped<IUrlRecordService, UrlRecordService>();
