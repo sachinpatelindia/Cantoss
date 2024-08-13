@@ -7,16 +7,16 @@ namespace Cantoss.Azure.Library
     /// <summary>
     /// Azure connection manager manages to connect different azure services
     /// </summary>
-    public class CosmosDbDependencyRegistrar
+    public static class CosmosDbDependencyRegistrar
     {
-        private Connection? _connection;
-        public CosmosDbDependencyRegistrar(IServiceCollection services, IConfiguration configuration)
+        private static Connection? _connection;
+        public static void AddCosmosDbDependencyRegistrar(this IServiceCollection services, IConfiguration configuration)
         {
-            _connection = this.GetConnection(services, configuration);
-            this.RegisterDependency(services);
+            _connection = GetConnection(services, configuration);
+            RegisterDependency(services);
         }
 
-        private void RegisterDependency(IServiceCollection services)
+        private static void RegisterDependency(IServiceCollection services)
         {
             _ = services.AddScoped<IConnectionFactory, ConnectionFactory>(con =>
             {
@@ -25,7 +25,7 @@ namespace Cantoss.Azure.Library
             services.AddScoped(typeof(ICosmosDbHandler<>), typeof(CosmosDbHandler<>));
         }
 
-        private Connection GetConnection(IServiceCollection services, IConfiguration configuration)
+        private static Connection GetConnection(IServiceCollection services, IConfiguration configuration)
         {
             var connection = new Connection();
             configuration.GetSection("Azure").Bind(connection);
