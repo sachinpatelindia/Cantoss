@@ -12,14 +12,15 @@ namespace Cantoss.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
             builder.Services.AddScoped(typeof(SlugRouteTransformer));
+            CosmosDbDependencyRegistrar registrar = new CosmosDbDependencyRegistrar(builder.Services, builder.Configuration);
             builder.Services.AddScoped<IPortalService, PortalService>();
             builder.Services.AddScoped<ICourseService, CourseService>();
             builder.Services.AddScoped<IUrlRecordService, UrlRecordService>();
             builder.Services.AddScoped(typeof(ICosmosDbHandler<>), typeof(CosmosDbHandler<>));
             builder.Services.AddSingleton<IRoutePublisher, RoutePublisher>();
-            AzureConnectionManager azureConnection = AzureConnectionManager.Instance(builder.Configuration);
+    
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

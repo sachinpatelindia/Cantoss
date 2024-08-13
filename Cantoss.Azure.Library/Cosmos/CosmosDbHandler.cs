@@ -11,10 +11,10 @@ namespace Cantoss.Azure.Library.Cosmos
         private Container? container;
         private readonly string endpointUri=string.Empty;
         private readonly string primaryKey = string.Empty;
-        private readonly IConfiguration _configuration;
-        public CosmosDbHandler(IConfigurationManager configurationManager)
+        private readonly IConnectionFactory _connectionFactory;
+        public CosmosDbHandler(IConnectionFactory factory)
         {
-            _configuration = configurationManager;
+            _connectionFactory = factory;
         }
 
         private async Task<Container?> GetCosmosContainer()
@@ -133,7 +133,6 @@ namespace Cantoss.Azure.Library.Cosmos
 
         private async Task<Container?> CosmosDbSetup()
         {
-            var connection = AzureConnectionManager.Instance(_configuration);
             this.cosmosClient = new CosmosClient(endpointUri, primaryKey, new CosmosClientOptions() { ApplicationName = "Cantoss Web App" });
             this.database = await cosmosClient.CreateDatabaseIfNotExistsAsync("database");
             this.container = await database.CreateContainerIfNotExistsAsync("container", "/partitionKey");
