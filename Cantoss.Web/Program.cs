@@ -40,7 +40,7 @@ namespace Cantoss.Web
             app.UseRouting();
 
             app.UseAuthorization();
-
+#pragma warning disable ASP0014
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "areaRoute", pattern: "{area:exists}/{controller=Course}/{action=Index}/{id?}");
@@ -48,11 +48,11 @@ namespace Cantoss.Web
                 app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-                
+
                 var result = app.Services.GetService<IRoutePublisher>();
                 result.RegisterRoutes(endpoints);
             });
-
+#pragma warning restore ASP0014
 
 
             app.Run();
