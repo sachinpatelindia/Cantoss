@@ -40,7 +40,7 @@ namespace Cantoss.Web.Controllers
             _cosmosDbHandler.Insert<Customer>(customer);
             return RedirectToAction("index");
         }
-
+        //comment
 
         // GET: CustomerController/Edit/5
         public ActionResult Edit(int id)
