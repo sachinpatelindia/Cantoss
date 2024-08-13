@@ -37,8 +37,8 @@ namespace Cantoss.Azure.Library
         {
             var cosemoDbConnection = _connection.CosmosDb;
             this.cosmosClient = new CosmosClient(cosemoDbConnection.EndpointUri, cosemoDbConnection.PrimaryKey, new CosmosClientOptions() { ApplicationName = "CosmosDBDotnetQuickstart" });
-            this.database = await cosmosClient.CreateDatabaseIfNotExistsAsync("database");
-            this.container = await database.CreateContainerIfNotExistsAsync("container", "/partitionKey");
+            this.database = await cosmosClient.CreateDatabaseIfNotExistsAsync("CantossDb");
+            this.container = await database.CreateContainerIfNotExistsAsync("CantossContainer", "/partitionKey");
             return this.container;
         }
     }

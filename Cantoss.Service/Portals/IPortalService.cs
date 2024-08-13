@@ -4,6 +4,6 @@ namespace Cantoss.Service.Portals
 {
     public interface IPortalService
     {
-        Portal GetPortalById(int? portalId = null);
+        Task<Portal> GetPortalById(int? portalId = null);
     }
 }
