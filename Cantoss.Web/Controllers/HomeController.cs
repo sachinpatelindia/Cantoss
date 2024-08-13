@@ -9,14 +9,13 @@ namespace Cantoss.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IPortalService _portalService;
-
         public HomeController(ILogger<HomeController> logger, IPortalService portalService)
         {
             _portalService = portalService;
              _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }
@@ -26,9 +25,9 @@ namespace Cantoss.Web.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
-            var contact = _portalService.GetPortalById();
+            var contact =await _portalService.GetPortalById();
             return View(contact);
         }
 

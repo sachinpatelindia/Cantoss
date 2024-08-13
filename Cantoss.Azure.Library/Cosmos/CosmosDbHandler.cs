@@ -1,6 +1,5 @@
 ﻿using Cantoss.Library;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Extensions.Configuration;
 
 namespace Cantoss.Azure.Library.Cosmos
 {
@@ -17,10 +16,6 @@ namespace Cantoss.Azure.Library.Cosmos
             _connectionFactory = factory;
         }
 
-        private async Task<Container?> GetCosmosContainer()
-        {
-            return await CreateConnection<Container>();
-        }
         public async Task<IList<T>> GetMany<T>(object partitionKey)
         {
             var container = await GetCosmosContainer();
@@ -125,18 +120,9 @@ namespace Cantoss.Azure.Library.Cosmos
             throw new NotImplementedException();
         }
 
-        public async Task<T?> CreateConnection<T>() where T : class
+        private async Task<Container?> GetCosmosContainer()
         {
-            var cosmos = await CosmosDbSetup();
-            return cosmos as T;
-        }
-
-        private async Task<Container?> CosmosDbSetup()
-        {
-            this.cosmosClient = new CosmosClient(endpointUri, primaryKey, new CosmosClientOptions() { ApplicationName = "Cantoss Web App" });
-            this.database = await cosmosClient.CreateDatabaseIfNotExistsAsync("database");
-            this.container = await database.CreateContainerIfNotExistsAsync("container", "/partitionKey");
-            return this.container;
+            return await _connectionFactory.CreateConnection<Container>(ConnectionType.AzureCosmosDb) as Container;
         }
     }
 }

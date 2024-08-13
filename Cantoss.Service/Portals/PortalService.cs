@@ -1,20 +1,19 @@
-﻿using Cantoss.Library.Domain.Portals;
+﻿using Cantoss.Azure.Library.Cosmos;
+using Cantoss.Library.Domain.Portals;
 
 namespace Cantoss.Service.Portals
 {
     public class PortalService : IPortalService
     {
-        public Portal GetPortalById(int? portalId = null)
+        private readonly ICosmosDbHandler<Portal> _dbHandler;
+        public PortalService(ICosmosDbHandler<Portal> dbHandler)
         {
-            return new Portal
-            {
-                Description = "This is portal info page, it contains information about portal contact details.",
-                Domain = "www.cantoss.com",
-                Email = "contact@example.com",
-                IsActive = true,
-                Name = "Cantoss web",
-                Phone = "1234567890"
-            };
+            _dbHandler = dbHandler;
+        }
+        public async Task<Portal> GetPortalById(int? portalId = null)
+        {
+            var portal =await _dbHandler.GetMany<Portal>(nameof(Portal));
+            return portal.FirstOrDefault();
         }
     }
 }
