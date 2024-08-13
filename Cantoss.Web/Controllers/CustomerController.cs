@@ -64,9 +64,15 @@ namespace Cantoss.Web.Controllers
         }
 
         // GET: CustomerController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
-            return View();
+            if (id == null)
+                throw new ArgumentNullException(nameof(id));
+            var customers = await _cosmosDbHandler.GetMany<Customer>(nameof(Customer));
+            var customer=customers.FirstOrDefault(m=>m.Id==id);
+            _cosmosDbHandler.Remove<Customer>(customer);
+
+            return RedirectToAction("Index");
         }
 
         // POST: CustomerController/Delete/5
